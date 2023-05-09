@@ -6,7 +6,7 @@
 #    By: rzamolo- <rzamolo-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 14:07:03 by rzamolo-          #+#    #+#              #
-#    Updated: 2023/04/18 10:53:15 by rzamolo-         ###   ########.fr        #
+#    Updated: 2023/05/09 15:58:24 by rzamolo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,10 +74,16 @@ def print_cookbook():
     # print(*cookbook, sep="\n")
 
 def print_details(rcp):
-    print("\nRecipe for {}:".format(rcp))
-    print("  Ingredients list:{}".format(str(cookbook[rcp]["ingredients"])))
-    print("  To be eaten for {}.".format(str(cookbook[rcp]["meal"])))
-    print("  Takes {} minutes of cooking.".format(str(cookbook[rcp]["prep_time"])))
+    try:
+        print("\nRecipe for {}:".format(rcp))
+        print("  Ingredients list:{}".format(str(cookbook[rcp]["ingredients"])))
+        print("  To be eaten for {}.".format(str(cookbook[rcp]["meal"])))
+        print("  Takes {} minutes of cooking.".format(str(cookbook[rcp]["prep_time"])))
+    except:
+        msg = "Recipe not found! Enter one of the recipes below."
+        print("{}".format(msg))
+        print_cookbook()
+        
 
 def del_recipe(rcp):
     try:
